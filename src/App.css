@@ -114,26 +114,6 @@ body {
 }
 
 @media only screen and (max-width: 991px) {
-  .collapse.navbar-collapse {
-      background-color: rgb(0, 0, 0);
-      width: 100%;
-      margin-left: 0px !important;
-      position: absolute;
-      left: 0;
-      top: 70px;
-      padding: 20px;
-      padding-left: 0px;
-      text-align: center;
-  }
-  .collapse.navbar-collapse a {
-      background: rgb(255, 255, 255);
-      color: rgb(0, 0, 0) !important;
-      border: 1px solid black !important;
-  }
-  .collapse.navbar-collapse a:hover {
-      color: rgb(255, 255, 255) !important;
-      background-color: black;
-  }
   .hero-header {
       font-size: 46px;
   }

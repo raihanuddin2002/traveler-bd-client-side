@@ -36,7 +36,7 @@ const Footer = () => {
                 </div>
             </div>
         </div>
-        <p className="mt-5 p-4 text-white text-center bg-warning">All rights reserved@Traveller.bd</p>
+        <p className="mt-5 p-4 text-center bg-warning">All rights reserved@Traveller.bd</p>
     </footer>
     );
 };

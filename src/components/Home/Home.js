@@ -27,7 +27,7 @@ const Home = () => {
                         <h4 className="text-uppercase text-light-red fw-bold fs-5 mb-4">Best Destinations around the world</h4>
                         <h1 className="hero-header ff-volkhob text-royel-blue fw-bold fs-4rem mb-4">Travel, enjoy and live a new and full life</h1>
                         <p className="text-gray mb-4">The gladdest moment in human life, me thinks, is a departure into unknown lands- Sir Richard Burton I've used the above quote before, but it seems particularly appropriate for this trip. We are beyond excited to finally be travelling again! We are flying to Amsterdam tomorrow, where we will spend four nights. Our B&B is located in central Amsterdam, and we expect to walk to pretty much everything.</p>
-                        <button className="btn-warning border-0 text-white px-4 py-3 rounded">Find out more</button>
+                        <button className="btn-warning border-0 px-4 py-3 rounded">Find out more</button>
                         <button className="btn ms-4"><span className="d-flex align-items-center"><span className="text-light-red fs-1 me-3"><i className="fas fa-play-circle"></i></span> <span className="text-muted">Play Demo</span></span></button>
                     </div>
                     <div className="hero-right col-xxl-6">
@@ -43,7 +43,7 @@ const Home = () => {
             <h5 className="text-gray text-center">SERVICES</h5>
             <h1 className="fs-1 ff-volkhob text-center">Choose Your Destination</h1>
             <div className="blank mb-5"></div>
-            <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
 
                 {
                     !isLoading && services.map(service => <Service key={service._id} data={service}></Service>)
@@ -240,7 +240,7 @@ const Home = () => {
                 <h2 className="subscribe-header text-center fs-1 text-royel-blue mb-5">Subscribe to get information, latest news and other interesting offers about Cobham</h2>
                 <div className="submit-section text-center">
                     <input type="email" placeholder="Your Email" className="px-4 py-3 border border-warning rounded-3 me-3 mb-3" cols="20" style={{width: "50%"}}/>
-                    <button className="btn-warning border-0 text-white px-4 py-3 rounded-3" type="submit">Subscribe</button>
+                    <button className="btn-warning border-0  px-4 py-3 rounded-3" type="submit">Subscribe</button>
                 </div>
             </div>
         </section>

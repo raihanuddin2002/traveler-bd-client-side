@@ -35,7 +35,7 @@ const Header = () => {
                             <Link className="nav-link text-white ms-4 fs-5 btn btn-warning px-4" to="/login">Log in</Link>
                         </li>}
                         {user && <li className="nav-item text-uppercase" onClick={logOut}>
-                            <Link className="nav-link text-white ms-4 fs-5 btn btn-warning px-4" to="/login">Log out</Link>
+                            <Link className="nav-link text-dark ms-4 fs-5 btn btn-warning px-4" to="/login">Log out</Link>
                         </li>}
                     </ul>
 

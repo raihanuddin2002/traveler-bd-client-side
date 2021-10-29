@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Service = (props) => {
-    const {_id,name,price, description, picture} = props.data;
+    const {_id,name,price, description, picture, rating,people} = props.data;
     return (
         <div className="col d-flex align-items-stretch">
             <article className="service-col p-5 bg-light shadow-lg rounded-4">
@@ -15,9 +15,15 @@ const Service = (props) => {
                 <p className="text-muted">
                     {description}
                 </p>
-                <h5 className="">
-                    {price}
-                </h5>
+               
+                <div className="d-flex justify-content-between">
+                    <h5 className="">
+                        {price}
+                    </h5>
+                    <div>
+                    <i class="fas fa-star fs-5 text-warning"></i> <span className="fw-bold">{rating}</span>({people})
+                    </div>
+                </div>
                 <Link to={`serviceDetails/${_id}`}><button className="btn btn-warning px-4">Book Now</button></Link>
             </article>
         </div>
