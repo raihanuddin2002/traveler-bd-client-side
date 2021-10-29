@@ -3,7 +3,6 @@ import { GoogleAuthProvider,signInWithPopup,onAuthStateChanged,signOut } from "f
 import { getAuth } from "firebase/auth";
 import { useState } from "react";
 import initializeAuthentication from "../Atuhentication/firebase.init";
-import { useHistory } from 'react-router-dom';
 
 initializeAuthentication();
 

@@ -40,7 +40,7 @@ const ServiceDetails = () => {
         const proceedOrder = {
             name,description,price,rating,people,picture,displayName,email,address, phone, ticketQuantity, totalCost
         }
-        axios.post(`https://damp-cliffs-56350.herokuapp.com/services/${id}`, proceedOrder)
+        axios.post(`https://damp-cliffs-56350.herokuapp.com/orderPlace/${id}`, proceedOrder)
         .then(res => {
             setSucess("Order Placed sucessfully :)");
             e.target.reset();
