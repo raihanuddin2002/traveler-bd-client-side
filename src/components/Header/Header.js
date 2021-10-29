@@ -32,7 +32,7 @@ const Header = () => {
 
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center fw-bold">
                         {!user && <li className="nav-item text-uppercase">
-                            <Link className="nav-link text-white ms-4 fs-5 btn btn-warning px-4" to="/login">Log in</Link>
+                            <Link className="nav-link ms-4 fs-5 btn btn-warning px-4" to="/login">Log in</Link>
                         </li>}
                         {user && <li className="nav-item text-uppercase" onClick={logOut}>
                             <Link className="nav-link text-dark ms-4 fs-5 btn btn-warning px-4" to="/login">Log out</Link>

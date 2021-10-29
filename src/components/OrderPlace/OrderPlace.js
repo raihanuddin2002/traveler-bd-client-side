@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const ServiceDetails = () => {
     const {id} = useParams();
+    const history = useHistory();
 
     const [services,setServices] = useState([]);
     const [ticket, setTicekt] = useState(1);
@@ -26,8 +27,7 @@ const ServiceDetails = () => {
     useEffect( () => {
         axios.get(`https://damp-cliffs-56350.herokuapp.com/services/${id}`)
             .then(res => setServices(res.data))
-            // https://damp-cliffs-56350.herokuapp.com/services/
-    },[])
+    },[services])
 
     // Handle Cart from
     const handleCartForm = (e) => {
@@ -38,14 +38,16 @@ const ServiceDetails = () => {
         const phone = phoneRef.current.value;
         
         const proceedOrder = {
-            displayName,email,address, phone, ticketQuantity, totalCost
+            name,description,price,rating,people,picture,displayName,email,address, phone, ticketQuantity, totalCost
         }
-        console.log(proceedOrder);
         axios.post(`https://damp-cliffs-56350.herokuapp.com/services/${id}`, proceedOrder)
-            .then(res => {
-                setSucess("Order Placed sucessfully :)");
-                e.target.reset();
-            });
+        .then(res => {
+            setSucess("Order Placed sucessfully :)");
+            e.target.reset();
+            setTimeout( () => {
+            history.push('/my-orders')
+            },3000);
+        }); 
     }
     
     
@@ -70,7 +72,7 @@ const ServiceDetails = () => {
                                 <td>{description}</td>
                                 </tr>
                                 <tr>
-                                <th scope="row">Price per person</th>
+                                <th scope="row">Price</th>
                                 <td>${price}</td>
                                 </tr>
                                 <tr>
