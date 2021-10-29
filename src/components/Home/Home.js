@@ -1,9 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import HeroSection from './HeroSection/HeroSection';
-import Services from './Services/Services';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import Service from './Service/Service';
 
 const Home = () => {
+    const [services, setServices] = useState([]);
+    const [isLoading, setLoading] = useState(true)
+
+    useEffect( () => {
+        axios.get("https://damp-cliffs-56350.herokuapp.com/services")
+            .then(res => {
+                setLoading(true);
+                if(res){
+                    setServices(res.data);
+                    setLoading(false);
+                }
+            })
+    },[])
+
     return (
         <div>
         {/* Hero section */}
@@ -24,44 +37,35 @@ const Home = () => {
             </div>
         </section>
 
-        {/* Categories */}
-        <div className="blank d-none d-md-block"  style={{height:"50px"}}></div>
-            <section className="container my-5 category-section">
-                <h5 className="text-gray text-center">CATEGORY</h5>
-                <h1 className="fs-1 ff-volkhob text-center">We Offer Best Services</h1>
-                <div className="blank mb-5"></div>
-                <div className="row gx-md-5 gy-md-5">
-                    <article className="col-md-6 col-xl-3 text-center align-content-center">
-                        <div className="border border-1 py-3 px-5 h-100">
-                            <img src="https://i.ibb.co/rtMSJgf/dish-1.png" alt=""/>
-                            <h3>Calculated Weather </h3>
-                            <p className="p-3">Built Wicket longer admire do barton vanity itself do in it.</p>
-                        </div>
-                    </article>
+        {/* Services */}
+        <section className="container">
+            <div className="blank d-none d-md-block"  style={{height:"50px"}}></div>
+            <h5 className="text-gray text-center">SERVICES</h5>
+            <h1 className="fs-1 ff-volkhob text-center">Choose Your Destination</h1>
+            <div className="blank mb-5"></div>
+            <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
 
-                    <article className="col-md-6 col-xl-3 text-center">
-                        <div className="border border-1 py-3 px-5 h-100">
-                            <img src="https://i.ibb.co/0CDsFdk/Group-51.png" alt=""/>
-                            <h3>Best Flights</h3>
-                            <p className="p-3">Engrossed listening. Park gate sell they west hard for the.</p>
-                        </div>
-                    </article>
-                    <article className="col-md-6 col-xl-3 text-center">
-                        <div className="border border-1 py-3 px-5 h-100">
-                            <img src="https://i.ibb.co/w0WzDbF/dish-3.png" alt=""/>
-                            <h3>Local Events</h3>
-                            <p className="p-3">Barton vanity itself do in it. Preferd to men it engrossed listening. </p>
-                        </div>
-                    </article>
-                    <article className="col-md-6 col-xl-3 text-center">
-                        <div className="border border-1 py-3 px-5 h-100">
-                            <img src="https://i.ibb.co/5YP1TqK/dish-2.png" alt=""/>
-                            <h3>Customization</h3>
-                            <p className="p-3">We deliver outsourced aviation services for military customers</p>
-                        </div>
-                    </article>
-                </div>
-            </section>
+                {
+                    !isLoading && services.map(service => <Service key={service._id} data={service}></Service>)
+                }
+                {
+                    isLoading &&<div> <h1 className="text-center">Loading...  
+                            <div class="spinner-grow text-primary" role="status"></div>
+                            <div class="spinner-grow text-secondary" role="status"></div>
+                            <div class="spinner-grow text-success" role="status"> </div>
+                            <div class="spinner-grow text-danger" role="status"></div>
+                            <div class="spinner-grow text-warning" role="status"></div>
+                            <div class="spinner-grow text-info" role="status">
+                            </div>
+                            <div class="spinner-grow text-dark" role="status"></div>
+                            </h1> </div>
+                       
+                }
+                
+            </div>
+        </section>
+
+ 
         {/* <!-- Blank --> */}
             <div className="blank d-none d-md-block"  style={{height:"50px"}}></div>
             {/* <!-- Blank --> */}
@@ -108,6 +112,44 @@ const Home = () => {
                 <div className="blank d-none d-md-block"  style={{height:"50px"}}></div>
             </section>
 
+        {/* Categories */}
+            <section className="container my-5 category-section">
+                <h5 className="text-gray text-center">CATEGORY</h5>
+                <h1 className="fs-1 ff-volkhob text-center">We Offer Best Services</h1>
+                <div className="blank mb-5"></div>
+                <div className="row gx-md-5 gy-md-5">
+                    <article className="col-md-6 col-xl-3 text-center align-content-center">
+                        <div className="border border-1 py-3 px-5 h-100">
+                            <img src="https://i.ibb.co/rtMSJgf/dish-1.png" alt=""/>
+                            <h3>Calculated Weather </h3>
+                            <p className="p-3">Built Wicket longer admire do barton vanity itself do in it.</p>
+                        </div>
+                    </article>
+
+                    <article className="col-md-6 col-xl-3 text-center">
+                        <div className="border border-1 py-3 px-5 h-100">
+                            <img src="https://i.ibb.co/0CDsFdk/Group-51.png" alt=""/>
+                            <h3>Best Flights</h3>
+                            <p className="p-3">Engrossed listening. Park gate sell they west hard for the.</p>
+                        </div>
+                    </article>
+                    <article className="col-md-6 col-xl-3 text-center">
+                        <div className="border border-1 py-3 px-5 h-100">
+                            <img src="https://i.ibb.co/w0WzDbF/dish-3.png" alt=""/>
+                            <h3>Local Events</h3>
+                            <p className="p-3">Barton vanity itself do in it. Preferd to men it engrossed listening. </p>
+                        </div>
+                    </article>
+                    <article className="col-md-6 col-xl-3 text-center">
+                        <div className="border border-1 py-3 px-5 h-100">
+                            <img src="https://i.ibb.co/5YP1TqK/dish-2.png" alt=""/>
+                            <h3>Customization</h3>
+                            <p className="p-3">We deliver outsourced aviation services for military customers</p>
+                        </div>
+                    </article>
+                </div>
+                <div className="blank d-none d-md-block"  style={{height:"50px"}}></div>
+            </section>
     {/* <!-- Easy and fast section --> */}
             <section className="container my-5 easy-fast-section">
                 <div className="row">
