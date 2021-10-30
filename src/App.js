@@ -10,7 +10,7 @@ import OrderPlace from './components/OrderPlace/OrderPlace';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import About from './components/About/About';
 import MyOrders from './components/MyOrders/MyOrders';
-import Blog from './components/Blog/Blog';
+import AllOrders from './components/AllOrders/AllOrders';
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
               </PrivateRoute>
 
               <PrivateRoute path="/manage-all-order">
-                  <Blog></Blog>
+                  <AllOrders></AllOrders>
               </PrivateRoute>
 
               <PrivateRoute  path="/orderPlace/:id">
