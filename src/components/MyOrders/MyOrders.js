@@ -18,7 +18,7 @@ const Ourservices = () => {
                 setservices(res.data)
             })
 
-    },[]);
+    },[services]);
     return (
         <div>
              <div className="container">

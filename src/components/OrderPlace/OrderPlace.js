@@ -40,14 +40,24 @@ const ServiceDetails = () => {
         const proceedOrder = {
             name,description,price,rating,people,picture,displayName,email,address, phone, ticketQuantity, totalCost
         }
-        axios.post(`https://damp-cliffs-56350.herokuapp.com/orderPlace/${id}`, proceedOrder)
-        .then(res => {
-            setSucess("Order Placed sucessfully :)");
-            e.target.reset();
-            setTimeout( () => {
-            history.push('/my-orders')
-            },3000);
-        }); 
+
+        // Saved order
+        
+        fetch(`https://damp-cliffs-56350.herokuapp.com/placeOrder/${id}`, {
+            method: 'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(proceedOrder)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setSucess("Order Placed sucessfully :)");
+                e.target.reset();
+                setTimeout( () => {
+                history.push('/my-orders')
+                },3000);
+            });
     }
     
     
