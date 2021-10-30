@@ -4,7 +4,7 @@ import Service from './Service/Service';
 
 const Home = () => {
     const [services, setServices] = useState([]);
-    const [isLoading, setLoading] = useState(true)
+    const [isLoading, setLoading] = useState(true);
 
     useEffect( () => {
         axios.get("https://damp-cliffs-56350.herokuapp.com/services")

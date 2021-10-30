@@ -8,7 +8,7 @@ const Header = () => {
     const {user, logOut} = useAuth();
     return (
         <div className="sticky-top bg-white">
-            <nav className="navbar navbar-expand-lg navbar-light">
+            <nav className="navbar navbar-expand-xl navbar-light">
                 <div className="container">
                     <span className="navbar-brand fs-1 fw-bold ff-volkhob">Traveller BD</span>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +27,9 @@ const Header = () => {
                         </li>}
                         {user && <li className="nav-item">
                          <Link className="nav-link text-dark" to="/manage-all-order">Manage All Orders</Link>
+                        </li>}
+                        {user && <li className="nav-item">
+                         <Link className="nav-link text-dark" to="/add-service">Add Service</Link>
                         </li>}
                     </ul>
 
