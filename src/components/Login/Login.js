@@ -3,8 +3,6 @@ import {useLocation,useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const [email,setEmail] = useState('');
-    const [password,setPassword] = useState('');
     const [error,setError] = useState('');
 
     const {signInWithGoogle} = useAuth();
@@ -16,14 +14,6 @@ const Login = () => {
     const redirect_url = location.state?.from.pathname || "/home";
 
 
-    // get email
-    const getEmail = (e) => {
-        setEmail(e.target.value);
-    }
-    // get pass
-    const getPass = (e) => {
-        setPassword(e.target.value);
-    }
     /*===================================
      *          Login System
      *===================================*/
@@ -49,6 +39,7 @@ const Login = () => {
                             <button  onClick={handleGoogleSignIn} className="btn btn-danger w-100 me-2 mb-3">Google</button>
                             <button className="btn btn-dark w-100 me-2" >Github</button>
                         </div>
+                        <h5 className="text-danger">{error}</h5>
                     </div>
                     <div className="col">
                         <div className="d-none d-md-block">

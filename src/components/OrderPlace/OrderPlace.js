@@ -14,6 +14,7 @@ const ServiceDetails = () => {
     const {displayName, email} = user;
     const {_id,name,description,price,rating,people,picture} = services;
     const totalCost = parseFloat(ticket) * parseFloat(price) || 0;
+    const orderStatus = "Pending";
 
     // get cart value
     const adressRef = useRef(); 
@@ -38,7 +39,7 @@ const ServiceDetails = () => {
         const phone = phoneRef.current.value;
         
         const proceedOrder = {
-            name,description,price,rating,people,picture,displayName,email,address, phone, ticketQuantity, totalCost
+            name,description,price,rating,people,picture,displayName,email,address, phone, ticketQuantity, totalCost, orderStatus
         }
 
         // Saved order

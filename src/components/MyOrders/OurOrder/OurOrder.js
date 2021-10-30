@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 
 const OurService = (props) => {
-    const {_id,name,displayName,price,people,rating, description,email, address, picture, phone} = props.data;
+    const {_id,name,displayName,price,people,rating, description,email, address, picture, phone, orderStatus} = props.data;
 
     const handleDelete = (id) => {
         const isConfirm = window.confirm("Are you sure to delete your order?");
@@ -24,6 +24,7 @@ const OurService = (props) => {
                 </div>
 
                 <div className="col-lg-6 p-5 ourservice-article">
+                    <h6 className="text-danger text-end">{orderStatus}</h6>
                     <h1 className="">USER INFO</h1>
                     <hr />
                     <h3 className="text-uppercase">Name: {displayName}</h3>
